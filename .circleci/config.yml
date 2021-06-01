@@ -24,17 +24,39 @@ jobs:
       - run:
           name: Echo done
           command: echo done!
-  blue-job:
+  deploy-prod:
     docker:
       - image: cimg/node:15.1
     steps:
-      - run: echo Blue job running
-      - run: echo Blue job finished
+      - run: echo Prod deploy step
+  deploy-sandbox:
+    docker:
+      - image: cimg/node:15.1
+    steps:
+      - run: echo Sandbox deploy step
+  deploy-staging:
+    docker:
+      - image: cimg/node:15.1
+    steps:
+      - run: echo Staging deploy step
 
 workflows:
-  build-and-test: 
+  version: 2.1
+  build-test-deploy:
     jobs:
       - build-and-test
-  blue-workflow:
-    jobs:
-      - blue-job
+      - deploy-staging:
+          requires: build-and-test
+          filters:
+            branches:
+              only: develop
+      - deploy-sandbox:
+          requires: build-and-test
+          filters:
+            branches:
+              only: sandbox
+      - deploy-prod:
+          requires: build-and-test
+          filters:
+            branches:
+              only: master
