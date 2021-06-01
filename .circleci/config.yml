@@ -20,7 +20,7 @@ jobs:
           command: npm test
       - run:
           name: Run eslint
-          command: eslint src/
+          command: npm run eslint
       - run:
           name: Echo done
           command: echo done!
