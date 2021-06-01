@@ -1,4 +1,4 @@
 
-export const greeting : {} = () => {
+export const greeting : any = () => {
     return "greeting";
 }
