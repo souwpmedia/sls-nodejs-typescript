@@ -49,7 +49,7 @@ workflows:
           filters:
             branches:
               only: master
-      - deploy-prod
+      - deploy-prod:
           requires: 
             - prod-deploy-approval
 
