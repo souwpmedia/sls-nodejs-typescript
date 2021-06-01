@@ -1,4 +1,4 @@
 
 export const greeting : any = () => {
-    return "greeting";;
+    return "greeting";
 }
