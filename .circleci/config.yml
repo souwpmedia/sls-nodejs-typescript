@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Echo done
           command: echo done!
-  blue-job
+  blue-job:
     docker:
       - image: cimg/node:15.1
     steps:
