@@ -42,6 +42,17 @@ jobs:
 
 workflows:
   version: 2.1
+  prod-workflow:
+    jobs:
+      - prod-deploy-approval:
+          type: approval
+          filters:
+            branches:
+              only: master
+      - deploy-prod
+          requires: 
+            - prod-deploy-approval
+
   build-test-deploy:
     jobs:
       - build-and-test
@@ -49,7 +60,6 @@ workflows:
           type: approval
           requires:
             - build-and-test
-
       - deploy-staging:
           requires: 
             - build-and-test
