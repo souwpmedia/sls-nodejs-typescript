@@ -60,6 +60,9 @@ workflows:
           type: approval
           requires:
             - build-and-test
+          filters:
+            branches:
+              only: master
       - deploy-staging:
           requires: 
             - build-and-test
