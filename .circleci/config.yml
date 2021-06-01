@@ -56,13 +56,6 @@ workflows:
   build-test-deploy:
     jobs:
       - build-and-test
-      - hold:
-          type: approval
-          requires:
-            - build-and-test
-          filters:
-            branches:
-              only: master
       - deploy-staging:
           requires: 
             - build-and-test
@@ -75,9 +68,3 @@ workflows:
           filters:
             branches:
               only: sandbox
-      - deploy-prod:
-          requires: 
-            - hold
-          filters:
-            branches:
-              only: master
