@@ -14,3 +14,4 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "Job status ${{ job.status }}"
+      - run: echo "Finished"
