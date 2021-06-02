@@ -1,5 +1,6 @@
+.idea/
+.vscode/
 node_modules/
-
-.serverless/
-.webpack/
-coverage
+build/
+tmp/
+temp/
