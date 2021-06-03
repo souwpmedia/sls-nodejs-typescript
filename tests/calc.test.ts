@@ -1,7 +1,7 @@
 import { add } from "../src/libs/calc";
 
 test("Test add 1", () => {
-    expect(add(1,2)).toBe(3);
+    expect(add(1,2)).toBe(1);
 });
 
 describe("test add 2", () => {
