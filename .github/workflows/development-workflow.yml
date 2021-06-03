@@ -1,0 +1,21 @@
+name: sample project workflow
+on:
+  push:
+    branches-ignore:
+      - master
+      - sandbox
+      - develop
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Run eslint
+        run: npm run eslint
+      - name: Run unit tests
+        run: npm run test
+      - run: echo "Build and test finished"
