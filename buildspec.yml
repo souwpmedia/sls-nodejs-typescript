@@ -4,13 +4,11 @@ phases:
     runtime-versions:
       nodejs: 14.x
     commands:
-      - echo Install phase
+      - npm ci
 
   pre_build:
     commands:
-      - echo Pre-build phase
-      - echo foooo
-
+      - npm run test
   build:
     commands:
       - echo Build phase
